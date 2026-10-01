@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Student Management System</h1>
+      <p>MongoDB Mini Project — Practical No. 11</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="cards">
+      <div class="card"><span>Total Students</span><strong id="total">0</strong></div>
+      <div class="card"><span>Average Marks</span><strong id="average">0</strong></div>
+      <div class="card"><span>Highest Marks</span><strong id="highest">0</strong></div>
+      <div class="card"><span>Lowest Marks</span><strong id="lowest">0</strong></div>
+    </section>
+
+    <section class="panel">
+      <h2>Add / Update Student</h2>
+      <form id="studentForm">
+        <input id="studentId" type="number" placeholder="Student ID" required>
+        <input id="name" placeholder="Name" required>
+        <input id="branch" placeholder="Branch (AI/CSE/IT)" required>
+        <input id="semester" type="number" min="1" max="8" placeholder="Semester" required>
+        <input id="email" type="email" placeholder="Email" required>
+        <input id="city" placeholder="City" required>
+        <input id="marks" type="number" min="0" max="100" placeholder="Marks" required>
+        <button type="submit">Save Student</button>
+        <button type="button" class="secondary" onclick="resetForm()">Clear</button>
+      </form>
+      <p id="message"></p>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <h2>Student Records</h2>
+        <input id="search" placeholder="Search name, branch or city..." oninput="loadStudents()">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Name</th><th>Branch</th><th>Sem</th>
+              <th>Email</th><th>City</th><th>Marks</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Branch-wise Aggregation</h2>
+      <table>
+        <thead><tr><th>Branch</th><th>Total Students</th><th>Average Marks</th></tr></thead>
+        <tbody id="branchTable"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
